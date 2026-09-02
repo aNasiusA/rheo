@@ -3,15 +3,18 @@ package dev.anasiusa;
 public class Shell {
     public static void main(String[] args) {
         while (true) {
-            String command = CommandUtils.getCommand();
+            String input = CommandUtils.getCommand();
 
-            if (CommandUtils.isExitCommand(command)) {
+            if (CommandUtils.isExitCommand(input)) {
+
                 break;
+
             }
 
-            String[] parts = CommandUtils.parseCommand(command);
+            Command command = CommandParser.parse(input);
 
-            System.out.println("Command: " + parts[0]);
+            System.out.println("Command: " + command.getName());
+            System.out.println("Args: " + command.getArgs());
         }
     }
 }
