@@ -13,8 +13,7 @@ public class Shell {
 
             Command command = CommandParser.parse(input);
 
-            System.out.println("Command: " + command.getName());
-            System.out.println("Args: " + command.getArgs());
+            CommandExecutor.execute(command);
         }
     }
 }
