@@ -1,5 +1,7 @@
 package dev.anasiusa;
 
+import java.io.File;
+
 public class BuiltinCommand {
 
     public static boolean isBuiltin(String commandName) {
@@ -14,12 +16,30 @@ public class BuiltinCommand {
         switch (command.getName()) {
             case "exit" -> executeExit(command);
             case "pwd" -> executePWD();
+            case "cd" -> executeCD(command);
             default -> throw new IllegalArgumentException("Unknown builtin: " + command.getName());
         }
     }
 
+    public static void executeCD(Command command) {
+
+        String path = command.getArgs().length == 0 ? System.getProperty("user.home") : command.getArgs()[0];
+
+        try {
+
+            System.setProperty("user.dir", new File(path).getCanonicalPath());
+
+        } catch (Exception e) {
+
+            System.out.println("rheo: cd: " + e.getMessage());
+
+        }
+    }
+
     public static void executePWD() {
+
         System.out.println(System.getProperty("user.dir"));
+
     }
 
     public static void executeExit(Command command) {
