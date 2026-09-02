@@ -9,4 +9,12 @@ public class CommandUtils {
         System.out.print("rheo> ");
         return scanner.nextLine();
     }
+
+    public static String[] parseCommand(String command) {
+        return command.trim().split("\\s+");
+    }
+
+    public static boolean isExitCommand(String command) {
+        return command.equals("exit");
+    }
 }
