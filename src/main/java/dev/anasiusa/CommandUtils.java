@@ -7,7 +7,8 @@ public class CommandUtils {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static String getCommand() {
-        System.out.print("rheo> ");
+        String currentPath = System.getProperty("user.dir");
+        System.out.print("rheo " + currentPath + "> ");
         return scanner.nextLine();
     }
 
