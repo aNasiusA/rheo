@@ -1,5 +1,8 @@
 package dev.anasiusa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Command {
 
     private final String name;
@@ -16,5 +19,18 @@ public class Command {
 
     public String[] getArgs() {
         return args;
+    }
+
+    public List<String> toList() {
+
+        List<String> commandparts = new ArrayList<>();
+
+        commandparts.add(name);
+
+        for (String arg : args) {
+            commandparts.add(arg);
+        }
+
+        return commandparts;
     }
 }
