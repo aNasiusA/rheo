@@ -1,16 +1,16 @@
 package dev.anasiusa;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CommandParser {
 
     public static Command parse(String input) {
 
-        String[] parts = input.trim().split("\\s+");
+        List<String> parts = Arrays.asList(input.trim().split("\\s+"));
 
-        String name = parts[0];
-
-        String[] args = new String[parts.length - 1];
-
-        System.arraycopy(parts, 1, args, 0, args.length);
+        String name = parts.get(0);
+        List<String> args = parts.subList(1, parts.size());
 
         return new Command(name, args);
     }

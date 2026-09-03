@@ -23,7 +23,7 @@ public class BuiltinCommand {
 
     public static void executeCD(Command command) {
 
-        String path = command.getArgs().length == 0 ? System.getProperty("user.home") : command.getArgs()[0];
+        String path = command.getArgs().isEmpty() ? System.getProperty("user.home") : command.getArgs().get(0);
 
         try {
 
@@ -44,7 +44,7 @@ public class BuiltinCommand {
 
     public static void executeExit(Command command) {
 
-        int code = command.getArgs().length == 0 ? 0 : Integer.parseInt(command.getArgs()[0]);
+        int code = command.getArgs().isEmpty() ? 0 : Integer.parseInt(command.getArgs().get(0));
         System.exit(code);
 
     }

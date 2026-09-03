@@ -6,9 +6,9 @@ import java.util.List;
 public class Command {
 
     private final String name;
-    private final String[] args;
+    private final List<String> args;
 
-    public Command(String name, String[] args) {
+    public Command(String name, List<String> args) {
         this.name = name;
         this.args = args;
     }
@@ -17,7 +17,7 @@ public class Command {
         return name;
     }
 
-    public String[] getArgs() {
+    public List<String> getArgs() {
         return args;
     }
 
@@ -27,9 +27,7 @@ public class Command {
 
         commandparts.add(name);
 
-        for (String arg : args) {
-            commandparts.add(arg);
-        }
+        commandparts.addAll(args);
 
         return commandparts;
     }
