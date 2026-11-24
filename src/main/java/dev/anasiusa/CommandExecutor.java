@@ -1,5 +1,6 @@
 package dev.anasiusa;
 
+import java.io.File;
 import java.io.IOException;
 
 public class CommandExecutor {
@@ -8,6 +9,8 @@ public class CommandExecutor {
         try {
 
             ProcessBuilder processBuilder = new ProcessBuilder(command.toList());
+
+            processBuilder.directory(new File(System.getProperty("user.dir")));
 
             processBuilder.inheritIO();
 

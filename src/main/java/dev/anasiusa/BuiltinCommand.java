@@ -25,9 +25,24 @@ public class BuiltinCommand {
 
         String path = command.getArgs().isEmpty() ? System.getProperty("user.home") : command.getArgs().get(0);
 
+        File target = new File(path);
+
+        if (!target.isAbsolute()) {
+
+            target = new File(System.getProperty("user.dir"), path);
+
+        }
+
+        if (!target.isDirectory()) {
+
+            System.out.println("rheo: cd: no such directory: " + path);
+            return;
+
+        }
+
         try {
 
-            System.setProperty("user.dir", new File(path).getCanonicalPath());
+            System.setProperty("user.dir", target.getCanonicalPath());
 
         } catch (Exception e) {
 

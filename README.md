@@ -44,7 +44,7 @@ java -jar target/rheo-*.jar
 
 ## Roadmap
 
-- [ ] Run external commands in the directory `cd` moved to (`ProcessBuilder.directory`)
+- [x] Run external commands in the directory `cd` moved to (`ProcessBuilder.directory`)
 - [ ] Quoted arguments (`echo "hello world"`)
 - [ ] Pipes (`ls | grep java`)
 - [ ] Redirection (`>`, `>>`, `<`)
